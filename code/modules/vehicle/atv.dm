@@ -3,11 +3,11 @@
 	desc = "An all-terrain vehicle built for traversing rough terrain with ease. One of the few old-earth technologies that are still relevant on most planet-bound outposts."
 	icon = 'icons/vehicles/4wheeler.dmi'
 	icon_state = "fourwheel"
-	keytype = /obj/item/key
-	generic_pixel_x = 0
-	generic_pixel_y = 4
-	vehicle_move_delay = 1
 	var/static/image/atvcover = null
+	
+/obj/vehicle/atv/buckle_mob()
+	. = ..()
+	riding_datum = new/datum/riding/atv
 
 
 /obj/vehicle/atv/New()
@@ -22,13 +22,6 @@ obj/vehicle/atv/post_buckle_mob(mob/living/M)
 		overlays += atvcover
 	else
 		overlays -= atvcover
-
-
-/obj/vehicle/atv/handle_vehicle_layer()
-	if(dir == SOUTH)
-		layer = MOB_LAYER+0.1
-	else
-		layer = OBJ_LAYER
 
 
 //TURRETS!

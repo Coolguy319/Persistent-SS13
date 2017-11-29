@@ -67,6 +67,11 @@
 
 		post_buckle_mob(.)
 
+/atom/movable/proc/unbuckle_all_mobs(force=FALSE)
+	if(!has_buckled_mobs())
+		return
+	for(var/m in buckled_mob)
+		unbuckle_mob(m, force)
 
 //Handle any extras after buckling/unbuckling
 //Called on buckle_mob() and unbuckle_mob()

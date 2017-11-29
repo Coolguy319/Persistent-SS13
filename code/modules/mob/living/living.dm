@@ -894,3 +894,7 @@
 		to_chat(src, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return 0
 	return 1
+/mob/living/post_buckle_mob(mob/living/M)
+	if(riding_datum)
+		riding_datum.handle_vehicle_offsets()
+		riding_datum.handle_vehicle_layer() 

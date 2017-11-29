@@ -125,6 +125,10 @@
 			if(shoes)
 				var/obj/item/clothing/shoes/S = shoes
 				S.step_action(src)
+/mob/living/carbon/human/Moved()
+	. = ..()
+	if(buckled_mob && riding_datum)
+		riding_datum.on_vehicle_move()
 
 /mob/living/carbon/human/handle_footstep(turf/T)
 	if(..())

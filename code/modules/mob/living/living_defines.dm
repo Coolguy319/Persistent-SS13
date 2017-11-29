@@ -62,5 +62,6 @@
 	var/list/surgeries = list()	//a list of surgery datums. generally empty, they're added when the player wants them.
 
 	var/gene_stability = DEFAULT_GENE_STABILITY
-
+	
+	var/datum/riding/riding_datum
 	

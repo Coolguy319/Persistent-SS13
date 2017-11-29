@@ -28,6 +28,7 @@
 	else
 		living_mob_list += src
 	prepare_huds()
+	can_ride_typecache = typecacheof(can_ride_typecache)
 	..()
 
 /atom/proc/prepare_huds()
@@ -1281,7 +1282,23 @@ var/list/slot_equipment_priority = list( \
 		if(O.w_class > class)
 			visible_implants += O
 	return visible_implants
-
+/mob/proc/spin(spintime, speed)
+	set waitfor = 0
+	var/D = dir
+	while(spintime >= speed)
+		sleep(speed)
+		switch(D)
+			if(NORTH)
+				D = EAST
+			if(SOUTH)
+				D = WEST
+			if(EAST)
+				D = SOUTH
+			if(WEST)
+				D = NORTH
+		setDir(D)
+		spintime -= speed
+		
 mob/proc/yank_out_object()
 	set category = "Object"
 	set name = "Yank out object"

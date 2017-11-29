@@ -202,6 +202,8 @@
 	var/robot_talk_understand = 0
 	var/alien_talk_understand = 0
 
+	var/list/can_ride_typecache = list()
+	
 	var/has_limbs = 1 //Whether this mob have any limbs he can move with
 
 	//SSD var, changed it up some so people can have special things happen for different mobs when SSD.
